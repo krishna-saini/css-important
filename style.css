@@ -1,0 +1,53 @@
+div:first-child {
+  height: 100px;
+  background-color: blue;
+}
+div:nth-child(2) {
+  height: 100px;
+  /* background-color: grey; */
+}
+/* using transition  */
+
+.btn3 {
+  transition: transform 0.5s ease-in-out;
+}
+
+.btn3:hover {
+  background-color: red;
+  transform: translateX(100px);
+}
+
+/* using pseudo elements  */
+.btn1 {
+  border: 2px solid #764abc;
+  color: #764abc;
+  padding: 10px 20px;
+  border-radius: 25px;
+  transition: all 1s;
+  position: relative;
+  left: 50%;
+  overflow: hidden; 
+  /* we will apply an overflow: hidden property to the button to hide any element that overflows from the container. When applied to the button, it will hide the translated pseudo-element and only show it when it moves back to position: */
+}
+
+.btn1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #764abc;
+  transition: all 1s;
+
+  z-index: -1;
+  transform: translateX(-100%);
+}
+
+.btn1:hover {
+  /* color: #fff; */
+}
+
+.btn1:hover::before {
+  transform: translateX(0%);
+}
